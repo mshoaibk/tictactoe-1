@@ -3,6 +3,7 @@ import * as signalR from '@microsoft/signalr';
 @Injectable({
   providedIn: 'root'
 })
+//chnges
 export class SignalrService {
   private hubConnection: signalR.HubConnection;
   constructor() {
