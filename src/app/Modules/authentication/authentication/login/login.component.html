@@ -2,8 +2,8 @@
         <form (ngSubmit)="onSubmit()" class="box">
                 <h1>Login</h1>
                 <p class="text-muted">Please enter your login and password!</p>
-                <input type="text" placeholder="Email" [(ngModel)]="userData.email">
-                <input type="password" name="password" placeholder="Password" [(ngModel)]="userData.password">
+                <input type="text" required  name="email" placeholder="Email" [(ngModel)]="userData.email">
+                <input type="password" required name="password" placeholder="Password" [(ngModel)]="userData.password">
                 <input type="submit" name="" value="Login">
                 <a class="text-white" routerLink="/register">Not a memeber? Register</a>
         </form>

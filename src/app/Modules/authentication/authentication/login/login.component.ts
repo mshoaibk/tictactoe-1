@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { RegisterService } from '../register/register.service';
+import { LoginService } from './login.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { RegisterService } from '../register/register.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private AccountServ : RegisterService, private route : Router){}
+  constructor(private toastr: ToastrService, private loginSer: LoginService, private route: Router) { }
   userData = {
     email: '',
     password: ''
@@ -17,12 +18,19 @@ export class LoginComponent {
 
   onSubmit() {
     this.fillmodel()
-    this.AccountServ.registerUser(this.model).subscribe(
-      (response) =>{
-        console.log('User login')
-        this.route.navigate(['/tic-tac-toe']);
+    this.loginSer.loginUser(this.model).subscribe(
+      (response) => {
+        if (response.status == true) {
+          this.toastr.success('Login Successfully', 'Have fun!');
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('userData', JSON.stringify(response.userData));
+          this.route.navigate(['/tic-tac-toe']);
+        }
+        else {
+          this.toastr.error('Login not Successful', 'Try Again');
+        }
       },
-      (error) =>{
+      (error) => {
         console.log('error')
       }
     )
@@ -33,4 +41,5 @@ export class LoginComponent {
       password: this.userData.password
     }
   }
+
 }

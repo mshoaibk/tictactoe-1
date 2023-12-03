@@ -8,6 +8,8 @@ import { TicTacToeModule } from './Modules/tic-tac-toe/tic-tac-toe.module'
 import { GameService } from '../app/Services/game.service';
 import {FormsModule, ReactiveFormsModule,} from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
@@ -22,8 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     TicTacToeModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(), 
   ],
   providers: [GameService], 
   bootstrap: [AppComponent]

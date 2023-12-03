@@ -1,21 +1,28 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
+
   showSplash: boolean = true;
 
-  constructor(private router: Router) {
+  constructor(private toastr: ToastrService,private router: Router) {
 
   }
   ngOnInit() {
     setTimeout(() => {
       this.showSplash = false;
-      this.router.navigate(['/login']);
+      if (localStorage.getItem('token')) {
+        this.toastr.success('Welcome Back')
+        this.router.navigate(['/tic-tac-toe']);
+      }
+      else {
+        this.router.navigate(['/login']);
+      }
     }, 6800);
   }
 }
