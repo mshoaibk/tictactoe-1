@@ -1,28 +1,42 @@
 import { Component } from '@angular/core';
-
+import { RegisterService } from './register.service'
+import { Route, Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  username: string = ""
-  phoneNumber: string = ""
-  email: string = ""
-  location: string = ""
-  password: string = ""
+  constructor(private AccountServ : RegisterService, private route : Router){}
+  userData = {
+    username: '',
+    phoneNumber: '',
+    email: '',
+    location: '',
+    password: ''
+  };
+  model: any;
 
-  constructor() {
-
+  onSubmit() {
+    this.fillmodel()
+    this.AccountServ.registerUser(this.model).subscribe(
+      (response) =>{
+        console.log('User has been registered')
+        this.route.navigate(['/login']);
+      },
+      (error) =>{
+        console.log('error')
+      }
+    )
   }
-  register() {
-    const user = {
-      userName : this.username,
-      email: this.email,
-      password : this.password,
-      phoneNumber : this.phoneNumber,
-      location : this.location
+  fillmodel() {
+    this.model = {
+      email: this.userData.email,
+      userName: this.userData.username,
+      phoneNumber: this.userData.phoneNumber,
+      location: this.userData.location,
+      password: this.userData.password
     }
-    debugger
   }
+  
 }
