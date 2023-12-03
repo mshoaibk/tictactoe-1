@@ -1,10 +1,10 @@
 .account-form {
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-        background: linear-gradient(to right, #b92b27, #1565c0)
-    }
+    background-image: url('./assets/images/ximg.png');
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
 
     .card {
         margin-bottom: 20px;
@@ -18,7 +18,6 @@
         ;
         text-align: center;
         transition: 0.25s;
-        margin-top: 100px
     }
 
     .box input[type="text"],
@@ -134,5 +133,84 @@
         color: #fff;
         transition: all 0.8s;
         transition: all 0.8s
+    }
+}
+
+//navbar scss
+nav {
+    background: transparent !important;
+
+    ul {
+        li {
+            list-style: none;
+            padding-right: 20px;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    }
+}
+
+.tic-tac-toe {
+    width: 100%;
+    height: 88vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .winner-message {
+        font-size: 24px;
+        font-weight: bold;
+        color: green;
+        margin-top: 10px;
+    }
+
+    p {
+        font-family: Lato;
+    }
+
+    .board {
+        width: 220px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .w-50{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .box {
+        width: 60px;
+        height: 60px;
+        background: #3d4250;
+        border: 1px solid;
+        font-family: "FontAwesome";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 45px;
+        border-radius: 10px;
+        margin: 5px;
+        cursor: pointer;
+    }
+
+    .box:hover {
+        background: #78bec5;
+    }
+
+    .x::after {
+        content: "\f00d";
+        color: #dc685a;
+    }
+
+    .o::after {
+        content: "\f10c";
+        color: #ecaf4f;
+    }
+    img{
+        width: 100%;
+        height: 90vh;
     }
 }

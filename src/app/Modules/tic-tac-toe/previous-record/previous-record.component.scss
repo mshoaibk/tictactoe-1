@@ -1,0 +1,15 @@
+/* previous-records.component.scss */
+.game-board {
+    display: flex;
+    width: 432px;
+    text-align: center;
+    border: 1px solid black;
+    flex-wrap: wrap;
+}
+
+.board-cell {
+    width: 33.33%;
+    /* Adjust the width based on your design */
+    box-sizing: border-box;
+    border: 1px solid black;
+}

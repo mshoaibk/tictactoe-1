@@ -1,0 +1,13 @@
+<!-- previous-records.component.html -->
+<div *ngFor="let record of history">
+    <div>
+      <p>{{ record.player }} played:</p>
+      <ul>
+        <li *ngFor="let move of record.board; let i = index">
+          {{ i + 1 }}. {{ move }}
+        </li>
+      </ul>
+      <p *ngIf="record.winner">Winner: {{ record.winner }}</p>
+    </div>
+  </div>
+  

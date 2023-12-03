@@ -1,0 +1,26 @@
+<div class="tic-tac-toe w-100">
+   
+    <div class="w-50">
+        <h3>
+            {{player1.name}}  vs  {{player2.name}}
+        </h3>
+        <div class="winner-message">
+            <div>
+                {{ winner }}
+            </div>
+        </div>
+        <div class="board">
+            <div class="box" (click)="move(i, currnetPlayer)" *ngFor="let square of board; let i = index"
+                [ngClass]="{'x': square === 'x', 'o': square === 'o'}">
+            </div>
+        </div>
+        <div *ngIf="winner" class="winner-message buttons">
+            <button type="button"  (click)="restartGame()">Restart</button>
+            <button type="button"  routerLink="/previous-record">
+                Records</button>
+        </div>
+    </div>
+    <div class="w-50">
+        <app-chat class="chat-section"></app-chat>
+    </div>
+</div>
