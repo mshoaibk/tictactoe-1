@@ -87,3 +87,13 @@ export class SignalrService {
   }
   
 }
+
+
+
+
+
+
+git config --global user.name "Muhammad Shoaib Khan"
+git config --global user.email "mshoaibk83@gmail.com" //mshoaibk
+
+yahan apni git ka username or email daal k ek ek bar enter krain asy yaahn changes nahi a re
