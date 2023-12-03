@@ -1,13 +1,14 @@
 <div class="account-form">
-    <form onsubmit="event.preventDefault()" class="box">
+    <form (ngSubmit)="onSubmit()" class="box">
         <h1>Create Account</h1>
         <div>
-            <input type="text" name="" placeholder="Username">
-            <input type="number" name="" placeholder="Phone Number">
-            <input type="email" name="" placeholder="email">
-            <input type="text" name="" placeholder="location">
-            <input type="password" name="" placeholder="Password">
+            <input type="text" name="username" placeholder="Username" [(ngModel)]="userData.username">
+            <input type="text" name="phoneNumber" placeholder="Phone Number" [(ngModel)]="userData.phoneNumber">
+            <input type="text" name="email" placeholder="Email" [(ngModel)]="userData.email">
+            <input type="text" name="location" placeholder="Location" [(ngModel)]="userData.location">
+            <input type="password" name="password" placeholder="Password" [(ngModel)]="userData.password">
         </div>
-        <input type="submit" name="" value="Sign Up" href="#">
+        <input type="submit" value="Sign Up">
+        <a class="text-white" routerLink="/login">Already have account</a>
     </form>
 </div>
