@@ -53,6 +53,7 @@ export class TicTacToeComponent {
       this.moveCounter++;
       const moveSymbol = this.currnetPlayer === this.player1 ? 'x' : 'o';
       this.board[index] = moveSymbol;
+      debugger
       this.gameService.addMove(player.name, [...this.board], this.winner);
       if (this.moveCounter > 4) {
         this.checkWin(this.currnetPlayer);
