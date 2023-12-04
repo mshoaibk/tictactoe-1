@@ -11,9 +11,7 @@ export class SignalrService {
     .withUrl('http://localhost:5041/mailHub',{
     skipNegotiation:true,
     transport: signalR.HttpTransportType.WebSockets
-    }).build();
-    this.startSignalRConnection();
-
+    }).build();///
     //this functions is called from backend
     this.hubConnection.on('ReceiveGameReq', (GameID: any,opponantUserId:any) => {
    //notifay current user about game req send by someone
